@@ -16,14 +16,21 @@ RUN sed -i \
 # ---------------------------------------------------------
 # Copy HTTP vhost (port 80)
 # ---------------------------------------------------------
-COPY ./apache.conf /usr/local/apache2/conf/extra/apache.conf
-RUN echo "Include conf/extra/apache.conf" >> /usr/local/apache2/conf/httpd.conf
+#COPY ./apache.conf /usr/local/apache2/conf/extra/apache.conf
+#RUN echo "Include conf/extra/apache.conf" >> /usr/local/apache2/conf/httpd.conf
 
 # ---------------------------------------------------------
 # Copy HTTPS vhost (port 443)
 # ---------------------------------------------------------
-COPY ./vhost-ssl.conf /usr/local/apache2/conf/extra/vhost-ssl.conf
-RUN echo "Include conf/extra/vhost-ssl.conf" >> /usr/local/apache2/conf/httpd.conf
+#COPY ./vhost-ssl.conf /usr/local/apache2/conf/extra/vhost-ssl.conf
+#RUN echo "Include conf/extra/vhost-ssl.conf" >> /usr/local/apache2/conf/httpd.conf
+
+# ---------------------------------------------------------
+# Copy combined HTTPS vhost (port 443) and (port 80)
+# ---------------------------------------------------------
+COPY ./combined-vhost.conf /usr/local/apache2/conf/extra/combined-vhost.conf
+RUN echo "Include conf/extra/combined-vhost.conf" >> /usr/local/apache2/conf/httpd.conf
+
 
 # ---------------------------------------------------------
 # Copy SSL certificates
