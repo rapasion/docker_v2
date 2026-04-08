@@ -15,7 +15,7 @@ services:
 
   php:
     build: ./php
-    container_name: php_fpm
+    container_name: php_fpm_v2
     expose:
       - "9000"
     volumes:
