@@ -1,7 +1,7 @@
 services:
   apache:
     build: ./apache
-    container_name: apache_server
+    container_name: apache_server_v2
     ports:
       - "80:80"
       - "443:443"
@@ -31,7 +31,7 @@ services:
 
   postgres:
     image: postgres:16
-    container_name: postgres
+    container_name: postgres_v2
     environment:
       POSTGRES_USER: richardp
       POSTGRES_PASSWORD: Password1!
@@ -43,7 +43,7 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: pgadmin
+    container_name: pgadmin_v2
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@localhost.com
       PGADMIN_DEFAULT_PASSWORD: Password1!
