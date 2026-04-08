@@ -36,7 +36,7 @@ RUN echo "Include conf/extra/combined-vhost.conf" >> /usr/local/apache2/conf/htt
 # Copy SSL certificates
 # ---------------------------------------------------------
 RUN mkdir -p /usr/local/apache2/conf/ssl
-COPY ./ssl/server.crt /usr/local/apache2/conf/ssl/server.crt
+COPY ./ssl/server-chain.crt /usr/local/apache2/conf/ssl/server-chain.crt
 COPY ./ssl/server.key /usr/local/apache2/conf/ssl/server.key
 
 # ---------------------------------------------------------
