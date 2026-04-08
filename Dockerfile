@@ -1,6 +1,6 @@
 FROM httpd:2.4
 
-LABEL maintainer="richard@example.com"
+LABEL maintainer="richard@localhost.com"
 
 # Enable required Apache modules for PHP-FPM
 RUN sed -i \
