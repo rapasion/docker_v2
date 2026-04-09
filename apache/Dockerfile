@@ -29,3 +29,5 @@ COPY ./ssl/server.key /usr/local/apache2/conf/ssl/server.key
 RUN mkdir -p /var/log/apache2
 
 WORKDIR /var/www/html
+
+RUN rm -f /usr/local/apache2/conf/extra/httpd-dav.conf
