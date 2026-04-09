@@ -12,6 +12,7 @@ services:
       - ./logs/apache:/var/log/apache2
     networks:
       - appnet
+    restart: unless-stopped
 
   php:
     build: ./php
@@ -23,8 +24,9 @@ services:
       - ./logs/php:/var/log/php
     networks:
       - appnet
+    restart: unless-stopped
     healthcheck:
-      test: ["CMD", "php", "-v"]
+      test: ["CMD", "pgrep", "php-fpm"]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -40,6 +42,7 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - appnet
+    restart: unless-stopped
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -53,6 +56,9 @@ services:
       - postgres
     networks:
       - appnet
+    restart: unless-stopped
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
 
 networks:
   appnet:
@@ -60,3 +66,4 @@ networks:
 
 volumes:
   pgdata:
+  pgadmin_data:
