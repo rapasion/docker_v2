@@ -20,7 +20,10 @@ COPY ./vhost-ssl.conf /usr/local/apache2/conf/extra/vhost-ssl.conf
 
 # SSL certificates
 RUN mkdir -p /usr/local/apache2/conf/ssl
-COPY ./ssl/server-chain.crt /usr/local/apache2/conf/ssl/server-chain.crt
+COPY ./ssl/server-chain.crt /usr/local/apache2/conf/ssl/server.crt
 COPY ./ssl/server.key /usr/local/apache2/conf/ssl/server.key
+
+# Create log directory
+RUN mkdir -p /var/log/apache2
 
 WORKDIR /var/www/html
