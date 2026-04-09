@@ -34,5 +34,5 @@ COPY ./ssl/server.key /usr/local/apache2/conf/ssl/server.key
 RUN mkdir -p /var/log/apache2
 
 RUN rm -f /usr/local/apache2/conf/extra/httpd-dav.conf
-
+RUN rm -f /usr/local/apache2/conf/extra/proxy-html.conf
 WORKDIR /var/www/html
