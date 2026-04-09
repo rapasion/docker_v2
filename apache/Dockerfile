@@ -15,6 +15,7 @@ RUN sed -i \
 
 # Include all vhosts
 RUN echo "IncludeOptional conf/extra/*.conf" >> /usr/local/apache2/conf/httpd.conf
+RUN rm -f /usr/local/apache2/conf/extra/httpd-ssl.conf
 
 # Copy vhost configs
 COPY ./apache.conf /usr/local/apache2/conf/extra/apache.conf
@@ -29,5 +30,3 @@ COPY ./ssl/server.key /usr/local/apache2/conf/ssl/server.key
 RUN mkdir -p /var/log/apache2
 
 WORKDIR /var/www/html
-
-RUN rm -f /usr/local/apache2/conf/extra/httpd-dav.conf
