@@ -9,6 +9,8 @@ RUN sed -i \
     -e 's/^#\s*LoadModule rewrite_module/LoadModule rewrite_module/' \
     -e 's/^#\s*LoadModule setenvif_module/LoadModule setenvif_module/' \
     -e 's/^#\s*LoadModule ssl_module/LoadModule ssl_module/' \
+    -e 's/^#\s*LoadModule alias_module/LoadModule alias_module/' \
+    -e 's/^#\s*LoadModule negotiation_module/LoadModule negotiation_module/' \
     /usr/local/apache2/conf/httpd.conf
 
 # Include all vhosts
