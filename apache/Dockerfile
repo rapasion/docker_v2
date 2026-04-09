@@ -15,7 +15,9 @@ RUN sed -i \
     /usr/local/apache2/conf/httpd.conf
 
 # Include all vhosts
+RUN sed -i '/IncludeOptional/d' /usr/local/apache2/conf/httpd.conf
 RUN echo "Include conf/extra/apache.conf" >> /usr/local/apache2/conf/httpd.conf
+#RUN echo "Include conf/extra/apache.conf" >> /usr/local/apache2/conf/httpd.conf
 # && echo "Include conf/extra/vhost-ssl.conf" >> /usr/local/apache2/conf/httpd.conf
 RUN rm -f /usr/local/apache2/conf/extra/httpd-ssl.conf
 
